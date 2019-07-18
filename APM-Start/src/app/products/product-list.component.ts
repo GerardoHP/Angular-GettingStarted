@@ -19,6 +19,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     _listFilter: string;
     filteredProducts: IProduct[];
     products: IProduct[];
+    errorMessage: string;
 
     get listFilter(): string {
         return this._listFilter;
@@ -34,8 +35,14 @@ export class ProductListComponent implements OnInit, OnDestroy {
     };
 
     ngOnInit(): void {
-        this.products = this.productService.getProducts();
-        this.filteredProducts = this.products;
+        this.productService.getProducts().subscribe(
+            products => {
+                this.products = products;
+                this.filteredProducts = this.products;
+            },
+            error => this.errorMessage = <any>error
+        );
+        
         this.pageTitle = 'Product List';
         this.imageMargin = 2;
         this.showImage = false;
