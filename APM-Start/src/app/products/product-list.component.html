@@ -41,7 +41,10 @@
                                  [alt]='product.productName'
                                  [style.margin.px]='imageMargin'
                                  *ngIf='showImage' /> </th>
-                        <th>{{product.productName}}</th>
+                        <th><a [routerLink]="['/products', product.productId]">
+                                {{product.productName}}
+                            </a>
+                        </th>
                         <th>{{product.productCode | lowercase | convertToSpaces : '-'}}</th>
                         <th>{{product.releaseDate}}</th>
                         <th>{{product.price | currency : 'USD':'symbol':'2.2-2'}}</th>

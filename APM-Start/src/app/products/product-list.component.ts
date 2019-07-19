@@ -3,7 +3,7 @@ import { IProduct } from './product';
 import { ProductService } from './product.service';
 
 @Component({
-    selector: 'pm-products',
+    // selector: 'pm-products', // No longer needed since we are moving to routing
     templateUrl: './product-list.component.html',
     styleUrls: ['./product-list.component.scss'],
     // providers: [ProductService] // Inyect el servicio localmente y para los componentes anidados
@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit, OnDestroy {
     };
 
     ngOnDestroy(): void {
-        throw new Error("Destroy Method not implemented.");
+        // throw new Error("Destroy Method not implemented.");
     };
 
     performFilter(filterBy: string): IProduct[] {
