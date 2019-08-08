@@ -4,14 +4,70 @@
     {{pageTitle + ': ' + product.productName}}
   </div>
   <div class="card-body">
-    <h4 class="card-title">Title</h4>
-    <p class="card-text">Text</p>
+
+
+
+    <h4 class="card-title">{{product.productName}}</h4>
+
+
+    <div class="pull-left">
+      <table class="table table-borderless">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col"></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td scope="row">Name:</td>
+            <td>{{product.productName}} </td>
+          </tr>
+          <tr>
+            <td scope="row">Code:</td>
+            <td>{{product.productCode}}</td>
+          </tr>
+
+          <tr>
+            <td scope="row">Description:</td>
+            <td>{{product.description}}</td>
+          </tr>
+
+          <tr>
+            <td scope="row">Availability:</td>
+            <td>{{product.releaseDate}}</td>
+          </tr>
+
+          <tr>
+            <td scope="row">Pirce:</td>
+            <td>{{product.price | currency : 'USD':'symbol':'2.2-2' }}</td>
+          </tr>
+
+          <tr>
+            <td scope="row">5 Star Raiting:</td>
+            <td>
+              <pm-star [raiting]='product.starRating'></pm-star>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="pull-right"> <img class="card-img-top"
+           style="width: 18rem"
+           [src]="product.imageUrl"
+           [alt]="product.productName">
+    </div>
+
+
   </div>
+
   <div class="card-footer text-muted">
     <button type="button"
             class="btn btn-outline-secondary"
             (click)='onBack()'>
-            <i class="fa fa-chevron-circle-left" aria-hidden="true"></i> Back
+      <i class="fa fa-chevron-circle-left"
+         aria-hidden="true"></i> Back
     </button>
   </div>
 </div>
